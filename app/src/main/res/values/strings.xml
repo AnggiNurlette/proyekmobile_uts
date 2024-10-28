@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Berita Film India Terbaru</string>
+
+    <string name="film_title_1">Film Teri Baaton Mein Aisa Uljha Jiya</string>
+    <string name="film_title_2">Film Crew</string>
+    <string name="film_title_3">Film Do Patti</string>
+    <string name="film_title_4">Film Stree</string>
+    <string name="film_title_5">Film Aashiqui</string>
+
+    <string name="film_description_1">Ulasan film Teri Baaton Mein Aisa Uljha Jiya: Eksperimen sosial dengan inti komedi situasi</string>
+    <string name="film_description_2">Review Crew, Film India Bertabur Bintang yang Gagal Bersinar?</string>
+    <string name="film_description_3">Do Patti! Sinopsis, Daftar Pemain dan Jadwal Tayang Film yang Dibintangi Kajol, Kriti Sanon dan Shaheer Sheikh</string>
+    <string name="film_description_4">Berita Terkait dengan Sinopsis Film India Horor Stree</string>
+    <string name="film_description_5">Sinopsis Film India Aashiqui, Ungkap Kisah Cinta Tragis Penyanyi Terkenal</string>
+</resources>
