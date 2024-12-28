@@ -1,6 +1,7 @@
 package com.anggriani.beritafilmindiaterbaru
 
 import android.os.Bundle
+import android.content.Intent
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -44,7 +45,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun FilmApp() {
     FilmList(
-        filmList = Datasource().loadFilms(), //an
+        filmList = Datasource().loadFilms(),
     )
 }
 
@@ -55,7 +56,9 @@ fun FilmList(filmList: List<Film>, modifier: Modifier = Modifier) {
             FilmCard(
                 film = film,
                 modifier = Modifier.padding(8.dp),
-                onClick = { /* Handle click here */ }
+                onClick = {
+                    // Navigasi ke detail film jika diperlukan di sini.
+                }
             )
         }
     }
@@ -63,16 +66,20 @@ fun FilmList(filmList: List<Film>, modifier: Modifier = Modifier) {
 
 @Composable
 fun FilmCard(film: Film, modifier: Modifier = Modifier, onClick: () -> Unit) {
+    val context = LocalContext.current
     Card(
-        modifier = modifier.clickable(onClick = onClick)
+        modifier = modifier.clickable(onClick = {
+            val intent = Intent(context, FilmDetailActivity::class.java).apply {
+                putExtra("FILM_ID", film.id)
+            }
+            context.startActivity(intent)
+        })
     ) {
         Column {
             Image(
                 painter = painterResource(film.imageResourceId),
                 contentDescription = stringResource(film.stringResourceId),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(300.dp),
+                modifier = Modifier.fillMaxWidth().height(300.dp),
                 contentScale = ContentScale.Crop
             )
             Text(
@@ -84,8 +91,11 @@ fun FilmCard(film: Film, modifier: Modifier = Modifier, onClick: () -> Unit) {
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 private fun FilmCardPreview() {
-    FilmCard(Film(R.string.film_title_1, R.drawable.gambar1), onClick = {})
+    FilmCard(
+        film = Film(1, R.string.film_title_1, R.drawable.gambar1, "Sinopsis film 1", "2024", "Berita terbaru tentang film 1"),
+        onClick = {}
+    )
 }
